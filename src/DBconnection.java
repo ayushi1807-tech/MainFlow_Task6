@@ -8,24 +8,23 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 public class DBconnection {
     public static Connection getConnection() throws Exception {
-        String url = "jdbc:mysql://localhost:3306/shop"; // Replace 'shop' with your database name
-        String user = "root"; // Change if your username is different
-        String password = ""; // Add your MySQL password here
+        String url = "jdbc:mysql://localhost:3306/shop"; 
+        String user = "root"; 
+        String password = ""; 
 
-        // Load MySQL JDBC Driver
+        
         Class.forName("com.mysql.cj.jdbc.Driver");
 
-        // Create and return connection
+        
         return DriverManager.getConnection(url, user, password);
     }
 
-    // Main method to test the connection
     public static void main(String[] args) {
         try {
             Connection conn = getConnection();
             if (conn != null) {
                 System.out.println(" Connection Successful!");
-                conn.close(); // Always close the connection
+                conn.close(); 
             }
         } catch (Exception e) {
             System.out.println(" Connection Failed:");
